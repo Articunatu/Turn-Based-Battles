@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5866549e7caa349ba6e79626791404, type: 3}
+  m_Name: "F\xE5geln"
+  m_EditorClassIdentifier: 
+  description: 
+  frontSprite: {fileID: 21300000, guid: 0083a8a6dc589a54ca7fdd194da47bd5, type: 3}
+  backSprite: {fileID: 21300000, guid: 0083a8a6dc589a54ca7fdd194da47bd5, type: 3}
+  affinity1: 3
+  affinity2: 11
+  maxHealth: 600
+  strength: 70
+  toughness: 70
+  magic: 70
+  composition: 70
+  agility: 40
+  learnableAttacks:
+  - attackBase: {fileID: 11400000, guid: d5a2afd392fd5a44596e8b2fcc61667e, type: 2}
+  - attackBase: {fileID: 11400000, guid: d8ab8893bd0201e47b420b45fb92ebf1, type: 2}
+  speciality: {fileID: 0}
