@@ -44,14 +44,14 @@ public class Dialog : MonoBehaviour
         attackSelectionUI.SetActive(enabled);
     }
 
-    public void SetAttackNames(List<Attack> attacks)
+    public void SetAttackNames(Character character)
     {
-        for (int i = 0; i < attackText.Count; ++i)
+        for (int i = 0; i < 4; i++)
         {
-            if (i < attacks.Count)
+            if (i < character.Attacks.Count)
             {
-                attackText[i].text = attacks[i].Base.Name;
-                attackUI[i].sprite = attacks[i].Base.UI;
+                attackText[i].text = character.Attacks[i].Base.Name;
+                attackUI[i].sprite = character.Attacks[i].Base.UI;
             }
             else
             {

@@ -29,7 +29,7 @@ public class SwapCharacter : TurnManager
             yield return new WaitForSeconds(2f);
             userPlayer.Setup(selectedMember);
 
-            dialog.SetAttackNames(selectedMember.Attacks);
+            dialog.SetAttackNames(selectedMember);
 
             yield return dialog.WriteDialog($"{selectedMember.Base.Name} enters the battle!");
             yield return new WaitForSeconds(0.6f);
@@ -45,7 +45,7 @@ public class SwapCharacter : TurnManager
         {
             userPlayer.Setup(selectedMember);
 
-            dialog.SetAttackNames(selectedMember.Attacks);
+            dialog.SetAttackNames(selectedMember);
 
             yield return dialog.WriteDialog($"{selectedMember.Base.Name} enters the battle!");
             yield return new WaitForSeconds(0.5f);

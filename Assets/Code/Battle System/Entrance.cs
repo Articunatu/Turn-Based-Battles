@@ -39,7 +39,7 @@ public class Entrance : TurnManager
         dialog.SetEnergy(userPlayer._character.Energy.ToString());
 
         teamUI.InitializeTeam();
-        dialog.SetAttackNames(userPlayer._character.Attacks);
+        dialog.SetAttackNames(userPlayer._character);
         turn = States.Lead;
         Entry();
     }
