@@ -28,6 +28,7 @@ public class Entrance : TurnManager
 
     public IEnumerator BeginBattle()
     {
+        userPlayer.gameObject.SetActive(false);
         opponentPlayer.Setup(opponentTeam.GetHealthyCharacter());
         yield return dialog.WriteDialog($"Opponent starts with {opponentPlayer._character.Base.Name}!");
         yield return new WaitForSeconds(0.5f);
