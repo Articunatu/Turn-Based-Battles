@@ -2182,7 +2182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be06c0fcc6501447bab604294bee00a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  letterVelocity: 10
+  letterVelocity: 25
   dialogText: {fileID: 271923202}
   energy: {fileID: 1006076835}
   attackSelectionUI: {fileID: 914165408}
@@ -2547,7 +2547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   letterVelocity: 20
   dialogText: {fileID: 271923202}
-  energy: {fileID: 31175717}
+  energy: {fileID: 1006076835}
   attackSelectionUI: {fileID: 914165408}
   attackText:
   - {fileID: 2132538657}

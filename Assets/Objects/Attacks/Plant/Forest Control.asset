@@ -20,7 +20,7 @@ MonoBehaviour:
   isMovement: 0
   isContact: 0
   hasTarget: 0
-  ui: {fileID: 21300000, guid: 58f718ac484f21c42aa1260764b8f08a, type: 3}
+  ui: {fileID: 21300000, guid: 379c63dfa13f79249a0ff68fef67fdef, type: 3}
   effects:
     boosts: []
     attackEffect: 
