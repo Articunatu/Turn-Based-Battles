@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce3bbec2cdec244bb93abd13a2762ab, type: 3}
   m_Name: Toxic Punch
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 50
   speed: 0
-  cost: 0
+  cost: 1
   description: 
   isForceDamage: 0
   isMovement: 1
