@@ -96,7 +96,6 @@ public class LearnableAttack
 
 public enum Element
 {
-    None,
     Plant,
     Fire,
     Water,
@@ -107,7 +106,8 @@ public enum Element
     Metal,
     Chemical,
     Space,
-    Ray
+    Ray,
+    None
 }
 
 public enum Attribute
@@ -148,8 +148,8 @@ public class ElementalMatchups
         }
         else
         {
-            int attacker = (int)attackType - 1; //row
-            int defender = (int)defenseType - 1; //column
+            int attacker = (int)attackType; //row
+            int defender = (int)defenseType; //column
             return matchupChart[attacker, defender];
         }
     }

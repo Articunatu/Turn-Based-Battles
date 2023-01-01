@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class DamageCalculator : TurnManager
+public class DamageCalculator : BattleBase
 {
     Hud hud;
 
@@ -9,48 +9,27 @@ public class DamageCalculator : TurnManager
     {
         Character defender = target._character;
         AttackBase attack = _attack.Base;
-        
+        //Debug.Log(attack.Damage);
 
         float elementMatchup = ElementalMatchups.GetElementalMatchup(attack.Element, defender.Base.Element1) *
         ElementalMatchups.GetElementalMatchup(attack.Element, defender.Base.Element2);
 
         float elementBoost = (attacker.Base.Element1 == attack.Element || attacker.Base.Element2 == attack.Element) ? 1.5f : 1;
+        //float healthVariable = 1, area = 1, screen = 1, thirdHealth = 1;
 
-
-        float healthVariable = 1, area = 1, screen = 1, thirdHealth = 1;
-
-        if (target.armor && attack.IsForceDamage)
-        {
-            screen = 1 / 1.5f;
-        }
-
-        //if (attacker.Base.Speciality.Effects.ThirdHealth != Element.None)
-        //{
-        //    thirdHealth = ThirdHealth(attack, attacker);
-        //}
-
-        if ((target.barrier && attack.IsForceDamage) || (target.armor && !attack.IsForceDamage))
-        {
-            screen = 1 / 1.5f;
-        }
-
-        if (UserField != AreaID.None || OpponentField != AreaID.None)
-        {
-            area = Check(_attack);
-        }
-
-        if (1 == 1)
-        {
-            healthVariable = attacker.Health / attacker.MaxHealth;
-        }
-
+        //AdditionalCalcs(_attack, attacker, target, attack);
         float attackValue = (attack.IsMovement) ? attacker.Strength : attacker.Magic;
-        float defenseValue = (attack.IsForceDamage) ? defender.Toughness : defender.Composition;
+        //Debug.Log(attackValue);
 
-        float damage = attack.Damage * ((float)attackValue / defenseValue) * elementMatchup * elementBoost *
-            healthVariable * screen * area * thirdHealth + 2;
+        float defenseValue = (attack.IsForceDamage) ? defender.Toughness : defender.Composition;
+        //Debug.Log(defenseValue);
+
+        float damage = attack.Damage * ((float)attackValue / defenseValue) * elementMatchup * elementBoost;
+        Debug.Log(damage);
+
+
         int roundedDamage = Mathf.FloorToInt(damage);
-        Debug.Log(roundedDamage);
+        //Debug.Log(roundedDamage);
 
         defender.UpdateHealth(roundedDamage);
 
@@ -59,10 +38,42 @@ public class DamageCalculator : TurnManager
         //    attacker.UpdateRecoil(roundedDamage * (int)attack.Effects.numberEffect);
         //}
 
-        float[] damageAndMatchup = new float[2] { roundedDamage, elementMatchup};
+        float[] damageAndMatchup = new float[2] { roundedDamage, elementMatchup };
 
         return damageAndMatchup;
     }
+
+    //private void AdditionalCalcs(Attack _attack, Character attacker, Player target, AttackBase attack, out float healthVariable, out float area, out float screen, out float thirdHealth)
+    //{
+    //    healthVariable = 1;
+    //    area = 1;
+    //    screen = 1;
+    //    thirdHealth = 1;
+    //    if (target.armor && attack.IsForceDamage)
+    //    {
+    //        screen = 1 / 1.5f;
+    //    }
+
+    //    //if (attacker.Base.Speciality.Effects.ThirdHealth != Element.None)
+    //    //{
+    //    //    thirdHealth = ThirdHealth(attack, attacker);
+    //    //}
+
+    //    if ((target.barrier && attack.IsForceDamage) || (target.armor && !attack.IsForceDamage))
+    //    {
+    //        screen = 1 / 1.5f;
+    //    }
+
+    //    if (UserField != AreaID.None || OpponentField != AreaID.None)
+    //    {
+    //        area = Check(_attack);
+    //    }
+
+    //    if (1 == 1)
+    //    {
+    //        healthVariable = attacker.Health / attacker.MaxHealth;
+    //    }
+    //}
 
     public int EntryHazard(Character eneterer)
     {

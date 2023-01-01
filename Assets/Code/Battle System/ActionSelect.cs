@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class ActionSelect : TurnManager
+public class ActionSelect : BattleBase
 {
     SpeedComparison speed;
     SwapCharacter swap;
@@ -44,7 +44,7 @@ public class ActionSelect : TurnManager
             {
                 CPUMove();
             }
-            Debug.Log(userPlayer._character.Agility);
+            //Debug.Log(userPlayer._character.Agility);
             StartCoroutine(dialog.WriteDialog("Choose an action"));
             dialog.ActivateAttackSelectionUI(true);
         }
@@ -75,7 +75,6 @@ public class ActionSelect : TurnManager
 
         if (r > 0 & hasNoEnergy <= opponentPlayer._character.Attacks.Count)
         {
-
             do
             {
                 opponentPlayer._character.CurrentAttack = opponentPlayer._character.GetRandomAttack();
@@ -133,26 +132,23 @@ public class ActionSelect : TurnManager
 
     public void FirstAttack()
     {
-        currentMove = 0;
-        AttackControl();
+        AttackControl(0);
     }
     public void SecondAttack()
     {
-        currentMove = 1;
-        AttackControl();
+        AttackControl(1);
     }
     public void ThirdAttack()
     {
-        currentMove = 2;
-        AttackControl();
+        AttackControl(2);
     }
     public void FourthAttack()
     {
-        currentMove = 3;
-        AttackControl();
+        AttackControl(3);
     }
 
-    public void AttackControl()
+
+    public void AttackControl(int index)
     {
         //if (userPlayer.Character_.Equipment.Effects.ChoiceLock)
         //{
@@ -168,8 +164,9 @@ public class ActionSelect : TurnManager
         //        userPlayer.Character_.LockedAttack = userPlayer.Character_.Attacks[currentAttack];
         //    }
         //}
+        userPlayer._character.CurrentAttack = userPlayer._character.Attacks[index];
 
-        if (userPlayer._character.Attacks[currentMove].Cost > userPlayer._character.Energy)
+        if (userPlayer._character.Attacks[index].Cost > userPlayer._character.Energy)
         {
             dialog.SetDialog("This character has no energy to use that attack right now!");
             return;
@@ -203,6 +200,8 @@ public class ActionSelect : TurnManager
         dialog.ActivateAttackSelectionUI(false);
         teamUI.gameObject.SetActive(true);
     }
+
+    #region Switch
     public void Switch1()
     {
         currentMember = 0;
@@ -233,6 +232,8 @@ public class ActionSelect : TurnManager
         currentMember = 5;
         SwitchControl();
     }
+    #endregion
+
     public void CloseParty()
     {
         teamUI.gameObject.SetActive(false);

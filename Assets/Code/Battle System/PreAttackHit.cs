@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class PreAttackHit : TurnManager
+public class PreAttackHit : BattleBase
 {
     public void PreHit(Attack attack, Player target)
     {

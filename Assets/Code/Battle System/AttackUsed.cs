@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-public class AttackUsed : TurnManager
+public class AttackUsed : BattleBase
 {
     DamageCalculator dc;
     EndTurn end;
@@ -23,7 +23,7 @@ public class AttackUsed : TurnManager
         end = GetComponent<EndTurn>();
     }
 
-    public IEnumerator RunMove(Player sourcePlayer, Player targetPlayer, Attack attack)
+    public IEnumerator UseAttack(Player sourcePlayer, Player targetPlayer, Attack attack)
     {
         if (!sourcePlayer._character.IsRecharging)
         {
@@ -34,7 +34,7 @@ public class AttackUsed : TurnManager
             }
             else if (!sourcePlayer.IsUser)
             {
-                yield return dialog.WriteDialog($"Opponent's {sourcePlayer._character.Base.Name} attacks with {attack.Base.Name}");
+                yield return dialog.WriteDialog($"Opponent {sourcePlayer._character.Base.Name} attacks with {attack.Base.Name}");
             }
             //effectsDB.PreMove(attack, sourcePlayer, targetPlayer);
             if (attack.Base.IsContact)
@@ -52,7 +52,7 @@ public class AttackUsed : TurnManager
 
             if (attack.Base.Damage == 0)
             {
-                yield return RunMoveEffects(attack.Base.Effects, sourcePlayer, targetPlayer, attack);
+                yield return UseAttackEffects(attack.Base.Effects, sourcePlayer, targetPlayer, attack);
             }
             else
             {
@@ -63,14 +63,14 @@ public class AttackUsed : TurnManager
 
             if (attack.Base.Effects != null)
             {
-                yield return RunMoveEffects(attack.Base.Effects, sourcePlayer, targetPlayer, attack);
+                yield return UseAttackEffects(attack.Base.Effects, sourcePlayer, targetPlayer, attack);
             }
 
             foreach (AttackEffect effect in attack.Base.Effects.AttackEffect)
             {
                 if (effect == AttackEffect.recoil)
                 {
-                    yield return RunMoveEffects(attack.Base.Effects, sourcePlayer, targetPlayer, attack);
+                    yield return UseAttackEffects(attack.Base.Effects, sourcePlayer, targetPlayer, attack);
                 }
             }
             //EffectHandler(EffectState.AfterHit);
@@ -84,7 +84,7 @@ public class AttackUsed : TurnManager
                 }
                 else
                 {
-                    yield return dialog.WriteDialog($"Opponent's {targetPlayer._character.Base.Name} is defeated");
+                    yield return dialog.WriteDialog($"Opponent {targetPlayer._character.Base.Name} is defeated");
                     defeatedTargetCharacter = true;
                 }
                 targetPlayer.PlayDefeatAnimation();
@@ -110,7 +110,7 @@ public class AttackUsed : TurnManager
         }
     }
 
-    IEnumerator RunMoveEffects(AttackEffects effects, Player source, Player target, Attack attack)
+    IEnumerator UseAttackEffects(AttackEffects effects, Player source, Player target, Attack attack)
     {
         /// Stat Boosting
 

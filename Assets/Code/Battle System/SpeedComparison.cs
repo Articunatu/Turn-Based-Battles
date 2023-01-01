@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-public class SpeedComparison : TurnManager
+public class SpeedComparison : BattleBase
 {
     private SwapCharacter swap;
     private EndTurn et;
@@ -43,7 +43,7 @@ public class SpeedComparison : TurnManager
 
     IEnumerator CompareSpeed()
     {
-        //Before speed: Player/Enemy's ablity item ();
+        //Before speed: User/Opponent's ablity item ();
         if (player == BattleAction.Switch && enemy == BattleAction.Switch)
         {
             if (userPlayer._character.Agility >= opponentPlayer._character.Agility)
@@ -68,8 +68,8 @@ public class SpeedComparison : TurnManager
         {
             yield return swap.SwitchPlayer();
             yield return new WaitUntil(() => switching == true);
-            var enemyMove = opponentPlayer._character.CurrentAttack;
-            yield return au.RunMove(opponentPlayer, userPlayer, enemyMove);
+            Attack opponentAttack = opponentPlayer._character.CurrentAttack;
+            yield return au.UseAttack(opponentPlayer, userPlayer, opponentAttack);
             yield return new WaitForSeconds(1f);
             yield return et.AfterSpeed(userPlayer, opponentPlayer);
             switching = false;
@@ -79,15 +79,15 @@ public class SpeedComparison : TurnManager
         {
             yield return swap.SwitchOpponent();
             yield return new WaitUntil(() => switching == true);
-            var playMove = userPlayer._character.Attacks[currentMove];
-            yield return au.RunMove(userPlayer, opponentPlayer, playMove);
+            Attack userAttack = userPlayer._character.CurrentAttack;
+            yield return au.UseAttack(userPlayer, opponentPlayer, userAttack);
             yield return new WaitForSeconds(1f);
             yield return et.AfterSpeed(userPlayer, opponentPlayer);
             switching = false;
         }
         else
         {
-            userPlayer._character.CurrentAttack = userPlayer._character.Attacks[currentMove];
+            userPlayer._character.CurrentAttack = userPlayer._character.CurrentAttack;
             if (!opponentPlayer._character.IsRecharging)
             {
                 opponentPlayer._character.CurrentAttack = opponentPlayer._character.GetRandomAttack();
@@ -97,32 +97,31 @@ public class SpeedComparison : TurnManager
             userAttackSpeed = userPlayer._character.CurrentAttack.Base.Speed;
 
 
-            ///Check who goes first
-            bool playerGoesFirst = true;
+            bool userAttacksFirst = true;
 
             if (opponentAttackSpeed > userAttackSpeed)
             {
-                playerGoesFirst = false;
+                userAttacksFirst = false;
             }
             else if (opponentAttackSpeed == userAttackSpeed)
             {
                 if (userPlayer._character.Agility > opponentPlayer._character.Agility)
                 {
-                    playerGoesFirst = true;
+                    userAttacksFirst = true;
                 }
                 else if (userPlayer._character.Agility < opponentPlayer._character.Agility)
                 {
-                    playerGoesFirst = false;
+                    userAttacksFirst = false;
                 }
                 else
                 {
                     if (userPlayer._character.IsRecharging)
                     {
-                        playerGoesFirst = false;
+                        userAttacksFirst = false;
                     }
                     else if (opponentPlayer._character.IsRecharging)
                     {
-                        playerGoesFirst = true;
+                        userAttacksFirst = true;
                     }
                     else
                     {
@@ -132,19 +131,19 @@ public class SpeedComparison : TurnManager
                 }
             }
 
-            var firstPlayer = (playerGoesFirst) ? userPlayer : opponentPlayer;
-            var secondPlayer = (playerGoesFirst) ? opponentPlayer : userPlayer;
+            var firstPlayer = (userAttacksFirst) ? userPlayer : opponentPlayer;
+            var secondPlayer = (userAttacksFirst) ? opponentPlayer : userPlayer;
 
             var secondCharacter = secondPlayer._character;
 
             // First Turn
-            yield return au.RunMove(firstPlayer, secondPlayer, firstPlayer._character.CurrentAttack);
+            yield return au.UseAttack(firstPlayer, secondPlayer, firstPlayer._character.CurrentAttack);
             //EffectHandler(EffectState.AfterHit);
 
             if (secondCharacter.Health > 0)
             {
                 // Second Turn
-                yield return au.RunMove(secondPlayer, firstPlayer, secondPlayer._character.CurrentAttack);
+                yield return au.UseAttack(secondPlayer, firstPlayer, secondPlayer._character.CurrentAttack);
                 yield return new WaitForSeconds(1f);
                 yield return et.AfterSpeed(userPlayer, opponentPlayer);
             }

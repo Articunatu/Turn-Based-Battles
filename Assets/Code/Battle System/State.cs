@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class State
 {
-    protected TurnManager TurnManager;
+    protected BattleBase TurnManager;
 
-    public State(TurnManager turnManager)
+    public State(BattleBase turnManager)
     {
         TurnManager = turnManager;
     }

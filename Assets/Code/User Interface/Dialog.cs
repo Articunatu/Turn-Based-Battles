@@ -9,8 +9,8 @@ public class Dialog : MonoBehaviour
 
     [SerializeField] Text dialogText, energy;
     [SerializeField] GameObject attackSelectionUI;
-    [SerializeField] List<Text> attackText;
-    [SerializeField] List<Image> attackUI;
+    [SerializeField] Text[] attackText;
+    [SerializeField] Image[] attackUI;
     //[SerializeField] Sprite PlantUI, FireUI, WaterUI, IceUI, LightningUI, AirUI, EarthUI, MetalUI, ChemicalUI, SpaceUI, RayUI;
 
     private void Start()

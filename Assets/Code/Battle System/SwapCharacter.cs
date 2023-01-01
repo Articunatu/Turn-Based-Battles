@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class SwapCharacter : TurnManager
+public class SwapCharacter : BattleBase
 {
     private ActionSelect actionSelect;
     private Dialog dialog;

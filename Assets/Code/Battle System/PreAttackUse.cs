@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class PreAttackUse : TurnManager
+public class PreAttackUse : BattleBase
 {
 
     public void PreMove(Attack attack, Player user, Player opponent)

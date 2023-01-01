@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackCollision : TurnManager
+public class AttackCollision : BattleBase
 {
     DamageCalculator dc;
 

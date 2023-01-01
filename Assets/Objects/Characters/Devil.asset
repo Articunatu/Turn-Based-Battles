@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5866549e7caa349ba6e79626791404, type: 3}
+  m_Name: Devil
+  m_EditorClassIdentifier: 
+  description: 
+  frontSprite: {fileID: 0}
+  backSprite: {fileID: 0}
+  affinity1: 0
+  affinity2: 0
+  maxHealth: 300
+  strength: 45
+  toughness: 85
+  magic: 100
+  composition: 35
+  agility: 75
+  learnableAttacks:
+  - attackBase: {fileID: 11400000, guid: b135fa2d2104e5c4da43752c9cf7f77d, type: 2}
+  - attackBase: {fileID: 11400000, guid: 07f278199ec3ba447aa6afaf0e118101, type: 2}
+  - attackBase: {fileID: 11400000, guid: 77d6f46397e2b6f4f9bba44b7e04f05f, type: 2}
+  - attackBase: {fileID: 11400000, guid: 8eef51cea49ce564aad49952a560dc1b, type: 2}
+  speciality: {fileID: 0}

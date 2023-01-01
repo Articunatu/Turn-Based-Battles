@@ -15,7 +15,7 @@ MonoBehaviour:
   description: 
   frontSprite: {fileID: 21300000, guid: 0083a8a6dc589a54ca7fdd194da47bd5, type: 3}
   backSprite: {fileID: 21300000, guid: 0083a8a6dc589a54ca7fdd194da47bd5, type: 3}
-  affinity1: 3
+  affinity1: 2
   affinity2: 11
   maxHealth: 600
   strength: 70
@@ -26,4 +26,5 @@ MonoBehaviour:
   learnableAttacks:
   - attackBase: {fileID: 11400000, guid: d5a2afd392fd5a44596e8b2fcc61667e, type: 2}
   - attackBase: {fileID: 11400000, guid: d8ab8893bd0201e47b420b45fb92ebf1, type: 2}
+  - attackBase: {fileID: 11400000, guid: 501db5ff8ee16d9438b6c7e4e2c48543, type: 2}
   speciality: {fileID: 0}

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class EndTurn : TurnManager
+public class EndTurn : BattleBase
 {
     private ActionSelect actionSelect;
     private SwapCharacter switchCharacter;
