@@ -7,7 +7,6 @@ public class AttackUsed : BattleBase
     DamageCalculator dc;
     EndTurn end;
 
-
     Dialog dialog;
     public Character randomMember, selectedMember;
 
@@ -56,8 +55,16 @@ public class AttackUsed : BattleBase
             }
             else
             {
-                dc.CalculateDamage(attack, sourcePlayer._character, targetPlayer);
+                float matchup = dc.CalculateDamage(attack, sourcePlayer._character, targetPlayer)[1];
                 yield return targetPlayer.Hud.UpdateHP();
+                if (matchup > 1)
+                {
+                    yield return dialog.WriteDialog($"Good matchup!");
+                }
+                if (matchup < 1)
+                {
+                    yield return dialog.WriteDialog($"Bad matchup...");
+                }
                 //damageCurrent = damageDetails.Damage;
             }
 

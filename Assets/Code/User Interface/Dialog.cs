@@ -17,12 +17,12 @@ public class Dialog : MonoBehaviour
     {
         attackSelectionUI.SetActive(false);
     }
-    public void SetDialog(string dialog)
+    public void UpdateDialog(string dialog)
     {
         dialogText.text = dialog;
     }
 
-    public void SetEnergy(string energy_)
+    public void UpdateEnergy(string energy_)
     {
         energy.text = energy_;
     }
@@ -44,7 +44,7 @@ public class Dialog : MonoBehaviour
         attackSelectionUI.SetActive(enabled);
     }
 
-    public void SetAttackNames(Character character)
+    public void UpdateAttackNames(Character character)
     {
         for (int i = 0; i < 4; i++)
         {

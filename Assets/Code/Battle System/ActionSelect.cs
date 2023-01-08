@@ -38,7 +38,7 @@ public class ActionSelect : BattleBase
             {
                 opponentPlayer._character.Energy = 3;
             }
-            dialog.SetEnergy(userPlayer._character.Energy.ToString());
+            dialog.UpdateEnergy(userPlayer._character.Energy.ToString());
             turn = States.Choose;
             if (!multiplayer)
             {
@@ -168,7 +168,7 @@ public class ActionSelect : BattleBase
 
         if (userPlayer._character.Attacks[index].Cost > userPlayer._character.Energy)
         {
-            dialog.SetDialog("This character has no energy to use that attack right now!");
+            dialog.UpdateDialog("This character has no energy to use that attack right now!");
             return;
         }
         else
@@ -244,12 +244,12 @@ public class ActionSelect : BattleBase
         selectedMember = userTeam.Characters[currentMember];
         if (selectedMember.Health <= 0)
         {
-            dialog.SetDialog("That character has no will left to fight");
+            dialog.UpdateDialog("That character has no will left to fight");
             return;
         }
         else if (selectedMember == userPlayer._character)
         {
-            dialog.SetDialog("That character is already sent out");
+            dialog.UpdateDialog("That character is already sent out");
             return;
         }
         else

@@ -29,7 +29,7 @@ public class SwapCharacter : BattleBase
             yield return new WaitForSeconds(2f);
             userPlayer.Setup(selectedMember);
 
-            dialog.SetAttackNames(selectedMember);
+            dialog.UpdateAttackNames(selectedMember);
 
             yield return dialog.WriteDialog($"{selectedMember.Base.Name} enters the battle!");
             yield return new WaitForSeconds(0.6f);
@@ -45,7 +45,7 @@ public class SwapCharacter : BattleBase
         {
             userPlayer.Setup(selectedMember);
 
-            dialog.SetAttackNames(selectedMember);
+            dialog.UpdateAttackNames(selectedMember);
 
             yield return dialog.WriteDialog($"{selectedMember.Base.Name} enters the battle!");
             yield return new WaitForSeconds(0.5f);

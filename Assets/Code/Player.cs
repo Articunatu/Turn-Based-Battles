@@ -8,6 +8,9 @@ public class Player : MonoBehaviour
 {
     [SerializeField] bool isUser;
     [SerializeField] Hud hud;
+    public int AttackSpeed { get; set; }
+    public Character CurrentMember { get; set; }
+    public AreaID Area { get; set; }
     public bool entryDamage, ///Hazard
          armor, barrier; ///Boosts
 

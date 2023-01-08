@@ -37,10 +37,10 @@ public class Entrance : BattleBase
         userPlayer.Setup(userTeam.GetHealthyCharacter());
         yield return dialog.WriteDialog($"{userPlayer._character.Base.Name}, let's go!");
         yield return new WaitForSeconds(0.75f);
-        dialog.SetEnergy(userPlayer._character.Energy.ToString());
+        dialog.UpdateEnergy(userPlayer._character.Energy.ToString());
 
         teamUI.InitializeTeam();
-        dialog.SetAttackNames(userPlayer._character);
+        dialog.UpdateAttackNames(userPlayer._character);
         turn = States.Lead;
         Entry();
     }
