@@ -1,4 +1,4 @@
-# Turn Based Battles
+# Turn-Based Battles
 
 ## Gameplay
 
