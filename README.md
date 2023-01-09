@@ -1,5 +1,5 @@
 # Turn Based Battles
 
-# Gameplay
+## Gameplay
 
-# Tech-Stack
+## Tech-Stack
