@@ -2,4 +2,8 @@
 
 ## Gameplay
 
-## Tech-Stack
+## Code
+* Scriptable Objects
+* State Machine
+* Animation
+* Networking 
