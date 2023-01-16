@@ -14,9 +14,9 @@ public class Entrance : State
     public Character selectedMember, randomMember;
 
 
-    public void Start()
+    public void Execute()
     {
-        actionSelect = GetComponent<ActionSelect>();
+        //actionSelect = GetComponent<ActionSelect>();
         //userPlayer = GetComponents<Player>().FirstOrDefault(p => p.IsUser.Equals(true));
         //opponentPlayer = GetComponents<Player>().FirstOrDefault(p => p.IsUser.Equals(false));
 
