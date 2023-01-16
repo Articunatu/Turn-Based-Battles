@@ -20,6 +20,6 @@ public class TurnManager : MonoBehaviour
 
     void BattleController()
     {
-       // _machine.SetState(new Entrance());
+       _machine.SetState(new Entrance());
     }
 }
