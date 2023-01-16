@@ -4,11 +4,11 @@ using UnityEngine;
 
 public abstract class StateMachine : MonoBehaviour
 {
-    protected State State;
+    protected State _state;
 
     public void SetState(State state)
     {
-        State = state;
-        StartCoroutine(State.Invoke());
+        _state = state;
+        _state.Execute();
     }
 }
