@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class State
+public abstract class State : BattleBase
 {
     protected TurnManager TurnManager;
 
@@ -11,7 +11,7 @@ public abstract class State
         TurnManager = turnManager;
     }
 
-    public virtual IEnumerator Invoke()
+    public virtual IEnumerator Execute()
     {
         yield break;
     }
