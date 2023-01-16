@@ -6,13 +6,13 @@ public abstract class State : BattleBase
 {
     protected TurnManager TurnManager;
 
-    public State(TurnManager turnManager)
-    {
-        TurnManager = turnManager;
-    }
+    //public State(TurnManager turnManager)
+    //{
+        //TurnManager = turnManager;
+    //}
 
-    public virtual IEnumerator Execute()
+    public virtual object Execute()
     {
-        yield break;
+        return null;
     }
 }
