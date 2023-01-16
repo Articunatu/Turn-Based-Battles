@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Entrance : BattleBase
+public class Entrance : State
 {
     private ActionSelect actionSelect;
 
