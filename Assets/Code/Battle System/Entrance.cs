@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Entrance : BattleBase
+public class Entrance : State
 {
     private ActionSelect actionSelect;
 
@@ -14,9 +14,9 @@ public class Entrance : BattleBase
     public Character selectedMember, randomMember;
 
 
-    public void Start()
+    public void Execute()
     {
-        actionSelect = GetComponent<ActionSelect>();
+        //actionSelect = GetComponent<ActionSelect>();
         //userPlayer = GetComponents<Player>().FirstOrDefault(p => p.IsUser.Equals(true));
         //opponentPlayer = GetComponents<Player>().FirstOrDefault(p => p.IsUser.Equals(false));
 
