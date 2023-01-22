@@ -11,12 +11,15 @@ public class TeamMemeberUI : MonoBehaviour
 
     Character _character;
 
-    public void SetHud(Character character)
+    public void DisplayMember(Character character)
     {
-        _character = character;
-
-        nameText.text = character.Base.Name;
-        healthBar.SetHealth((float)_character.Health / _character.MaxHealth);
+        if (!CharacterTeam.lobby)
+        {
+            _character = character;
+            nameText.text = character.Base.Name;
+            healthBar.SetHealth((float)_character.Health / _character.MaxHealth);
+        }
+        
         image.sprite = character.Base.FrontSprite;
     }
 }

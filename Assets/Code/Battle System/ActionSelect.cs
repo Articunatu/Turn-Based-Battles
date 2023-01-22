@@ -196,7 +196,7 @@ public class ActionSelect : BattleBase
 
     public void OpenTeam()
     {
-        teamUI.SetTeam(userTeam.Characters);
+        teamUI.DisplayTeam(userTeam.Characters);
         dialog.ActivateAttackSelectionUI(false);
         teamUI.gameObject.SetActive(true);
     }

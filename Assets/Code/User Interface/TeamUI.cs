@@ -11,13 +11,13 @@ public class TeamUI : MonoBehaviour
         characterSlots = GetComponentsInChildren<TeamMemeberUI>();
     }
 
-    public void SetTeam(List<Character> characters)
+    public void DisplayTeam(List<Character> characters)
     {
         for (int i = 0; i < characterSlots.Length; i++)
         {
             if (i < characters.Count)
             {
-                characterSlots[i].SetHud(characters[i]);
+                characterSlots[i].DisplayMember(characters[i]);
             }
             else
             {

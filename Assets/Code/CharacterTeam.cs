@@ -11,7 +11,7 @@ public class CharacterTeam : MonoBehaviour
     [SerializeField] string teamName;
     [SerializeField] Text partyName;
     [SerializeField] bool isCurrent;
-     static public bool lobby = false;
+     static public bool lobby = true;
 
     public List<Character> Characters
     {
@@ -39,7 +39,7 @@ public class CharacterTeam : MonoBehaviour
             teamFigures.InitializeTeam();
             foreach (var figure in characters)
             {
-                teamFigures.SetTeam(characters);
+                teamFigures.DisplayTeam(characters);
             }
         }
     }

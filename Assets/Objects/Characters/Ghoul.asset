@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee5866549e7caa349ba6e79626791404, type: 3}
-  m_Name: Devil
+  m_Name: Ghoul
   m_EditorClassIdentifier: 
   description: 
   frontSprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
