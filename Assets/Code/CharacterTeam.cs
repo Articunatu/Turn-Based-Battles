@@ -46,6 +46,6 @@ public class CharacterTeam : MonoBehaviour
 
     public Character GetHealthyCharacter()
     {
-        return characters.Where(x => x.Health > 0).FirstOrDefault();
+        return characters.FirstOrDefault(x => x.Health > 0);
     }
 }
