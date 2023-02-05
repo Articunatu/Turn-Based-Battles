@@ -5,6 +5,7 @@ using UnityEngine;
 public class TeamUI : MonoBehaviour
 {
     TeamMemeberUI[] characterSlots;
+    [SerializeField] CharacterTeam team;
 
     public void InitializeTeam()
     {
@@ -24,5 +25,10 @@ public class TeamUI : MonoBehaviour
                 characterSlots[i].gameObject.SetActive(false);
             }
         }
+    }
+
+    public void ViewTeamMenu()
+    {
+        team.TeamInitialization();
     }
 }

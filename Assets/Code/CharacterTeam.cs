@@ -37,15 +37,12 @@ public class CharacterTeam : MonoBehaviour
         {
             partyName.text = teamName;
             teamFigures.InitializeTeam();
-            foreach (var figure in characters)
-            {
-                teamFigures.DisplayTeam(characters);
-            }
+            teamFigures.DisplayTeam(characters);
         }
     }
 
     public Character GetHealthyCharacter()
     {
-        return characters.FirstOrDefault(x => x.Health > 0);
+        return characters.FirstOrDefault(character => character.Health > 0);
     }
 }
