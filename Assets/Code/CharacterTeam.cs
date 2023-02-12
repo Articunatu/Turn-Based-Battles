@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class CharacterTeam : MonoBehaviour
 {
     [SerializeField] List<Character> characters;
-    [SerializeField] TeamUI teamFigures;
     [SerializeField] string teamName;
     [SerializeField] Text partyName;
     [SerializeField] bool isCurrent;
@@ -31,13 +30,6 @@ public class CharacterTeam : MonoBehaviour
         foreach (var figure in characters)
         {
             figure.SetAttacks();
-        }
-
-        if (lobby)
-        {
-            partyName.text = teamName;
-            teamFigures.InitializeTeam();
-            teamFigures.DisplayTeam(characters);
         }
     }
 

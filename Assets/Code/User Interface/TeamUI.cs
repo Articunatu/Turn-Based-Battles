@@ -7,6 +7,12 @@ public class TeamUI : MonoBehaviour
     TeamMemeberUI[] characterSlots;
     [SerializeField] CharacterTeam team;
 
+    private void Start()
+    {
+        InitializeTeam();
+        DisplayTeam(team.Characters);
+    }
+
     public void InitializeTeam()
     {
         characterSlots = GetComponentsInChildren<TeamMemeberUI>();
