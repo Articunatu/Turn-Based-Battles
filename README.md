@@ -9,7 +9,7 @@ The faster character will be the first to use its attack unless the slower one u
 If both characters and their attacks are equally fast, the attacks will result in an attack collision: First, the power of each attack is calculated, then the elemental matchups are checked, to finally compare which attack wins. The rest damage of the winning attack is calculated and subtracted from the losing character’s health, as well as applying optional effects of the attack.
 
 ### Elements and matchup chart
-![Elemental Matchup Chart](https://ibb.co/dm5Qyt5)
+![Elemental Matchup Chart](https://ibb.co/dm5Qyt5)s
 
 ## Code  
 * Scriptable Objects
