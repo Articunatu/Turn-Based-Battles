@@ -13,4 +13,4 @@ If both characters and their attacks are equally fast, the attacks will result i
 * Scriptable Objects
 * State Machine
 * Animation: DOTWeen package
-* Networking: Will change from Photo to Azure Playfab
+* Networking: Currently Photon for, but will change to Azure Playfab
