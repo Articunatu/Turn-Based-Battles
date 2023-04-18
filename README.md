@@ -8,6 +8,8 @@ Each character starts with 3 energy points, which are used as a cost for attacki
 The faster character will be the first to use its attack unless the slower one uses an attack with a higher attack speed than the faster one’s attack. (this might be changed so that the attack speed only works as a multiplier to the character's agility, and the product decides who goes first).
 If both characters and their attacks are equally fast, the attacks will result in an attack collision: First, the power of each attack is calculated, then the elemental matchups are checked, to finally compare which attack wins. The rest damage of the winning attack is calculated and subtracted from the losing character’s health, as well as applying optional effects of the attack.
 
+### Elements and matchup chart
+![Elemental Matchup Chart](https://ibb.co/dm5Qyt5)
 
 ## Code  
 * Scriptable Objects
