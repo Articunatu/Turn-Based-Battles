@@ -13,6 +13,6 @@ If both characters and their attacks are equally fast, the attacks will result i
 
 ## Code  
 * Scriptable Objects
-* State Machine
+* State Machine pattern
 * Animation: DOTWeen package
-* Networking: Currently Photon for, but will change to Azure Playfab
+* Networking: Photon
