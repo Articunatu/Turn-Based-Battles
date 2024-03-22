@@ -45,10 +45,12 @@ public class CharacterBase : ScriptableObject
     {
         get { return affinity1; }
     }
-    public Element Element2
-    {
-        get { return affinity2; }
-    }
+    //public Element Element2
+    //{
+    //    get { return affinity2; }
+    //}
+
+    public Element Element2 { get; set; }
 
     public int MaxHealth
     {

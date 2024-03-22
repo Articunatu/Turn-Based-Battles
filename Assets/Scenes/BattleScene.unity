@@ -399,7 +399,6 @@ MonoBehaviour:
     AttributeChanges: []
     HealthChanged: 0
     IsItemActive: 0
-  teamFigures: {fileID: 1638536576}
   teamName: 
   partyName: {fileID: 0}
   isCurrent: 0
@@ -1249,7 +1248,6 @@ MonoBehaviour:
     AttributeChanges: []
     HealthChanged: 0
     IsItemActive: 0
-  teamFigures: {fileID: 0}
   teamName: 
   partyName: {fileID: 0}
   isCurrent: 0
@@ -2583,8 +2581,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a585f4c75b56c4da3f2d281a6707c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entrance: {fileID: 0}
-  actionSelect: {fileID: 0}
+  entrance: {fileID: 979991007}
+  actionSelect: {fileID: 979991008}
 --- !u!114 &979991006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2643,6 +2641,7 @@ MonoBehaviour:
   multiplayer: 0
   playerAction: 0
   enemyAction: 0
+  actionSelect: {fileID: 979991008}
   userPlayer: {fileID: 1463932555}
   opponentPlayer: {fileID: 1439767624}
   dialog: {fileID: 979991006}
@@ -4263,6 +4262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d593c6950d37af4fb7f4a6174e1a783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: {fileID: 0}
 --- !u!222 &1638536578
 CanvasRenderer:
   m_ObjectHideFlags: 0

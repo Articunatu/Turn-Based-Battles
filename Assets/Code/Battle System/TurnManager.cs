@@ -15,7 +15,8 @@ public class TurnManager : MonoBehaviour
 
     void Start()
     {
-        BattleController();
+        StartCoroutine(entrance.BeginBattle());
+        //BattleController();
     }
 
     void BattleController()

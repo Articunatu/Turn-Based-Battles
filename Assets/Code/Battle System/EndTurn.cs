@@ -195,6 +195,7 @@ public class EndTurn : BattleBase
             }
             else
             {
+                defeatedCharacter.Hud.enabled = false;
                 yield return dialog.WriteDialog($"Opponent has won the battle");
             }
         }

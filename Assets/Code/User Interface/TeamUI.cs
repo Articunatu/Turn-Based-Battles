@@ -4,37 +4,43 @@ using UnityEngine;
 
 public class TeamUI : MonoBehaviour
 {
-    TeamMemeberUI[] characterSlots;
-    [SerializeField] CharacterTeam team;
+    TeamMemeberUI[] CharacterSlots;
+    [SerializeField] public CharacterTeam Team;
 
-    private void Start()
+    //private void Start()
+    //{
+    //    InitializeTeam();
+    //    DisplayTeam(team.Characters);
+    //}
+
+    void AllTeamsRender()
     {
         InitializeTeam();
-        DisplayTeam(team.Characters);
+        DisplayTeam(Team.Characters);
     }
 
     public void InitializeTeam()
     {
-        characterSlots = GetComponentsInChildren<TeamMemeberUI>();
+        CharacterSlots = GetComponentsInChildren<TeamMemeberUI>();
     }
 
     public void DisplayTeam(List<Character> characters)
     {
-        for (int i = 0; i < characterSlots.Length; i++)
+        for (int i = 0; i < CharacterSlots.Length; i++)
         {
             if (i < characters.Count)
             {
-                characterSlots[i].DisplayMember(characters[i]);
+                CharacterSlots[i].DisplayMember(characters[i]);
             }
             else
             {
-                characterSlots[i].gameObject.SetActive(false);
+                CharacterSlots[i].gameObject.SetActive(false);
             }
         }
     }
 
     public void ViewTeamMenu()
     {
-        team.TeamInitialization();
+        Team.TeamInitialization();
     }
 }

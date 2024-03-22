@@ -27,9 +27,9 @@ public class CharacterTeam : MonoBehaviour
 
     public void TeamInitialization()
     {
-        foreach (var figure in characters)
+        foreach (var character in characters)
         {
-            figure.SetAttacks();
+            character.SetAttacks();
         }
     }
 

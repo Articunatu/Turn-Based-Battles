@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Entrance : State
 {
-    private ActionSelect actionSelect;
+    [SerializeField] public ActionSelect actionSelect;
 
     [SerializeField] public Player userPlayer, opponentPlayer;
     [SerializeField] public Dialog dialog;
